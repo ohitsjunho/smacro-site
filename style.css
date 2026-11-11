@@ -1,0 +1,41 @@
+:root {
+  --paper: #FAF6EE;
+  --card: #FFFDF8;
+  --ink: #35302A;
+  --soft: #6E665C;
+  --rule: #E8E1D3;
+  --accent: #C24A3B;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1D1A17;
+    --card: #282420;
+    --ink: #E9E2D6;
+    --soft: #A9A094;
+    --rule: #35302A;
+    --accent: #F2665C;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 18px/1.6 "Crimson Pro", Georgia, "Times New Roman", serif;
+  -webkit-text-size-adjust: 100%;
+}
+main { max-width: 680px; margin: 0 auto; padding: 48px 20px 72px; }
+header { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.brand { color: var(--accent); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; }
+h1 { font-size: 2.1em; line-height: 1.15; margin: 0.35em 0 0.2em; font-weight: 600; }
+h2 { font-size: 1.3em; margin: 1.8em 0 0.4em; font-weight: 600; }
+p, li { color: var(--ink); }
+.meta { color: var(--soft); margin: 0; }
+a { color: var(--accent); }
+ul { padding-left: 1.2em; }
+li + li { margin-top: 0.35em; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 18px 20px; margin: 20px 0; }
+.card p { margin: 0.3em 0; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; color: var(--soft); font-size: 0.9em; }
