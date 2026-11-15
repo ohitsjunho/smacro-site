@@ -13,7 +13,7 @@
 <header>
   <a class="brand" href="./">Smacro</a>
   <h1>Privacy policy</h1>
-  <p class="meta">Effective November 11, 2026</p>
+  <p class="meta">Effective November 15, 2026</p>
 </header>
 
 <div class="card">
@@ -27,7 +27,9 @@
 <p>If you're signed in to iCloud, Smacro keeps a copy of your log, foods and recipes in your private iCloud account using Apple's CloudKit. This lets your log come back if you reinstall the app or move to a new iPhone. That data is stored by Apple under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> and can only be read by you. The developer can't access it. You can turn this off in the Settings app under your name, then iCloud.</p>
 
 <h2>Barcode lookups</h2>
-<p>When you scan or type a barcode, Smacro sends just that barcode number to <a href="https://fdc.nal.usda.gov">USDA FoodData Central</a>, a free food database run by the U.S. Department of Agriculture, to find the food's nutrition facts. Nothing else about you or your log is sent. Like any website, USDA's servers can see the request's internet address. See <a href="https://www.usda.gov/privacy-policy">USDA's privacy policy</a> for how they handle requests.</p>
+<p>When you scan or type a barcode, Smacro sends just that barcode number to Smacro's barcode server, which looks it up in <a href="https://www.fatsecret.com">fatsecret</a>'s food database and sends back the food's nutrition facts. Nothing else about you or your log is sent.</p>
+<p>The server doesn't record barcodes, and it has no accounts or personal data. Like any website, it can see the request's internet address. It keeps that in memory for about a minute, only to limit how many lookups one address can make, and never saves it. It keeps the nutrition facts it finds, not who asked for them, in memory for up to a week, so the same barcode isn't looked up again.</p>
+<p>fatsecret only sees requests from Smacro's server, never from your iPhone. The server runs on <a href="https://fly.io">Fly.io</a>, which handles its connections under <a href="https://fly.io/legal/privacy-policy">Fly.io's privacy policy</a>.</p>
 
 <h2>Camera and photos</h2>
 <p>Smacro uses the camera to read barcodes and nutrition labels. When you choose a photo of a label, only that photo is shared with the app. Both are read on your iPhone and are never uploaded or saved by Smacro.</p>
@@ -54,7 +56,7 @@
 <h2>Contact</h2>
 <p>Questions about privacy? Write to <a href="mailto:ohjunho725@gmail.com">ohjunho725@gmail.com</a>.</p>
 
-<footer><a href="./">Smacro</a> · <a href="support.html">Support</a> · <a href="terms.html">Terms and disclaimer</a></footer>
+<footer><a href="./">Smacro</a> · <a href="support.html">Support</a> · <a href="terms.html">Terms and disclaimer</a><br><a href="https://platform.fatsecret.com">Powered by fatsecret Platform API</a></footer>
 </main>
 </body>
 </html>
