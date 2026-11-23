@@ -39,3 +39,5 @@ li + li { margin-top: 0.35em; }
 .card p { margin: 0.3em 0; }
 nav { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
 footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; color: var(--soft); font-size: 0.9em; }
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 12px; }
+.shots img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 16px; }
