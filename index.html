@@ -2,28 +2,298 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Smacro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smacro: the food notebook that counts your macros</title>
+<meta name="description" content="Just write what you ate. Smacro is a food notebook for iPhone and Apple Watch that adds up your calories, protein, carbs and fat as you write. No account, no ads, no streaks.">
+<meta name="theme-color" content="#FAF5EC">
+<meta name="apple-itunes-app" content="app-id=6831761822">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Smacro: just write what you ate">
+<meta property="og:description" content="The food notebook that counts your macros as you write. No account. No ads. No streaks.">
+<meta property="og:url" content="https://ohitsjunho.github.io/smacro-site/">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<main>
-<header>
-  <a class="brand" href="./">Smacro</a>
-  <h1>A food notebook for your macros</h1>
-  <p class="meta">Write what you ate the way you'd say it, and Smacro adds up your protein, carbs, fat and calories.</p>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/icon.png" alt="" width="40" height="40">Smacro</a>
+    <a class="link" href="#how">How it works</a>
+    <a class="link" href="#features">Features</a>
+    <a class="link" href="#looks">Looks</a>
+    <a class="link" href="#privacy">Privacy</a>
+    <a class="cta" href="https://apps.apple.com/us/app/smacro/id6831761822">Get the app</a>
+  </div>
 </header>
-<nav>
-  <a href="support.html">Support</a>
-  <a href="privacy.html">Privacy policy</a>
-  <a href="terms.html">Terms and disclaimer</a>
-</nav>
-<div class="card">
-  <p>Smacro is a notebook, not medical or nutrition advice. Talk to a doctor or registered dietitian before setting goals or changing how you eat. <a href="terms.html">Read the disclaimer</a>.</p>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><i></i>For iPhone and Apple Watch</span>
+      <h1>Just write what you <em>ate.</em></h1>
+      <p class="lede">The food notebook that <b>counts your macros</b> as you write.</p>
+
+      <div class="hero-actions">
+        <a class="store" href="https://apps.apple.com/us/app/smacro/id6831761822">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.1.7c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.4-.9-2.4-3.8zM14.1 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <p>No account.<br>No ads. No streaks.</p>
+      </div>
+
+      <div class="demo" aria-label="Animated demo: typing a food into Smacro and logging it">
+        <div class="demo-top"><span><b id="dTotal">0</b>of 2,025 cal</span><span id="dLeft">2,025 left</span></div>
+        <div class="bar" aria-hidden="true"><i id="s1"></i><i id="s2"></i><i id="s3"></i></div>
+        <div class="typed"><span id="dType"><span class="ph">Write what you ate…</span></span><span class="caret"></span></div>
+        <div class="suggest" id="dSuggest" aria-hidden="true">
+          <div><strong id="dName">Egg, boiled</strong><small id="dSub">2 large · P 13 · C 1 · F 11</small></div>
+          <div class="r"><span id="dCal">155</span><span class="logbtn" id="dBtn">Log</span></div>
+        </div>
+        <ul class="rows" id="dRows"></ul>
+      </div>
+    </div>
+
+    <div class="stage">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <span class="chip p">Protein 38 / 140 g</span>
+      <span class="chip c">Carbs 68 / 220 g</span>
+      <span class="chip f">Fat 19 / 65 g</span>
+      <div class="phone"><img src="img/home.jpg" width="640" height="1391" alt="Smacro's page for a Wednesday: 570 of 2,025 calories, protein, carbs and fat bars, and a list of oatmeal, almonds, yogurt, a banana and egg whites."></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker">
+    <span>2 eggs</span><span>150g chicken breast</span><span>a banana</span><span>1 cup oatmeal</span><span>1 oz almonds</span><span>Greek yogurt</span><span>2 slices toast</span><span>a flat white</span>
+  </div>
 </div>
-<footer>Questions? Write to <a href="mailto:contactsmacro@gmail.com">contactsmacro@gmail.com</a>.<br><a href="https://platform.fatsecret.com">Powered by fatsecret Platform API</a></footer>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rv">How it works</p>
+      <h2 class="rv">It's a notebook. <em>Not a form.</em></h2>
+      <ol class="steps">
+        <li class="rv"><div><h3>Write it.</h3><p>“2 eggs.” “150g chicken breast.” Type it the way you'd say it.</p></div></li>
+        <li class="rv d1"><div><h3>Tap Log.</h3><p>Smacro suggests the right food and portion. One tap puts it on the page.</p></div></li>
+        <li class="rv d2"><div><h3>Watch it add up.</h3><p>Calories, protein, carbs and fat tally against your goal as the day goes.</p></div></li>
+      </ol>
+    </div>
+    <div class="stage rv d1">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="phone"><img src="img/type.jpg" width="640" height="1391" loading="lazy" alt="Typing “2 egg” on Smacro's page, with “Egg, boiled, 2 large, 155 calories” suggested and a Log button."></div>
+    </div>
+  </div>
+</section>
+
+<!-- MACROS -->
+<section aria-labelledby="macros-h">
+  <div class="macros-head"><div class="wrap">
+    <p class="eyebrow rv">The numbers</p>
+    <h2 id="macros-h" class="rv">Four numbers. <em>Zero math.</em></h2>
+    <p class="lede rv">Calories and the three macros, kept against your daily goal at the top of the page, all day.</p>
+  </div></div>
+  <div class="macros">
+    <article class="p rv"><div class="g" aria-hidden="true">P</div><div><h3>Protein</h3><p>Build it, keep it, hit it. Counted from every line.</p></div></article>
+    <article class="c rv d1"><div class="g" aria-hidden="true">C</div><div><h3>Carbs</h3><p>The fuel, counted without a second thought.</p></div></article>
+    <article class="f rv d2"><div class="g" aria-hidden="true">F</div><div><h3>Fat</h3><p>All three colors, in one bar, at a glance.</p></div></article>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="wrap">
+    <p class="eyebrow rv">Everything in the notebook</p>
+    <h2 class="rv">Simple on the page. <em>Serious underneath.</em></h2>
+
+    <div class="bento">
+      <article class="card c-scan rv">
+        <div class="barcode-wrap" aria-hidden="true">
+          <div class="barcode"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span class="scanline"></span></div>
+        </div>
+        <h3>Scan a barcode.</h3>
+        <p>Point your camera at the package and the food is on the page. No typing, no hunting.</p>
+      </article>
+
+      <article class="card c-goals rv d1">
+        <h3>Goals you can see.</h3>
+        <p>Set a daily target, work one out with the calorie calculator, and see how the week went.</p>
+        <div class="phone shot"><img src="img/goals.jpg" width="640" height="1391" loading="lazy" alt="Smacro's Analytics screen: a bar chart of daily calories against a 1,740 calorie goal."></div>
+      </article>
+
+      <article class="card c-label rv">
+        <div class="label-art" aria-hidden="true"><b>Nutrition Facts</b><div><span>Calories</span><span>190</span></div><div><span>Protein</span><span>12g</span></div><div><span>Total Fat</span><span>7g</span></div></div>
+        <span class="tag">Smacro Pro</span>
+        <h3>Snap a label.</h3>
+        <p>Photograph a Nutrition Facts panel and Smacro copies the numbers for you.</p>
+      </article>
+
+      <article class="card c-recipes rv d1">
+        <div class="recipe-art" aria-hidden="true">1 pot</div>
+        <h3>Save a recipe.</h3>
+        <p>Cook once. Log it in one line.</p>
+      </article>
+
+      <article class="card c-wrist rv">
+        <svg class="ring-art" viewBox="0 0 160 160" aria-hidden="true"><circle class="t" cx="80" cy="80" r="70"/><circle class="a" cx="80" cy="80" r="70"/><circle class="t" cx="80" cy="80" r="30"/><circle class="b" cx="80" cy="80" r="30"/></svg>
+        <h3>On your wrist and Home Screen.</h3>
+        <p>Log from your Apple Watch, glance at it in a complication, and add Home and Lock Screen widgets with Pro.</p>
+      </article>
+
+      <article class="card c-health rv d1">
+        <div class="heart-art" aria-hidden="true">♥</div>
+        <h3>Plays nicely with Apple.</h3>
+        <p>Optional Apple Health sync, and your log kept safe in your own iCloud.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LOOKS + PETS -->
+<section class="themes" id="looks">
+  <div class="wrap">
+    <p class="eyebrow rv">Make it yours</p>
+    <h2 class="rv">Same notebook. <em>Seven looks.</em></h2>
+    <p class="lede rv">From graph paper to a sunny pool day. And a little pixel pet who lives at the bottom of your page and grows up over a year.</p>
+    <div class="pets-note rv"><span>Themes</span><span>Pixel pets</span><span>Outfits</span><span>Free pet colors</span></div>
+  </div>
+  <div class="rail" id="rail">
+    <figure class="theme"><div class="phone"><img src="img/theme-notebook.jpg" width="640" height="1391" loading="lazy" alt="The Notebook look: warm paper with ruled lines."></div><figcaption>Notebook</figcaption></figure>
+    <figure class="theme"><div class="phone"><img src="img/theme-treetop.jpg" width="640" height="1391" loading="lazy" alt="The Treetop look: green graph paper and field notes."></div><figcaption>Treetop</figcaption></figure>
+    <figure class="theme"><div class="phone"><img src="img/theme-poolday.jpg" width="640" height="1391" loading="lazy" alt="The Pool Day look: a bright blue header with rounded cards."></div><figcaption>Pool Day</figcaption></figure>
+    <figure class="theme"><div class="phone"><img src="img/theme-yuzu.jpg" width="640" height="1391" loading="lazy" alt="The Yuzu look: soft green-grey with citrus and macro rings."></div><figcaption>Yuzu</figcaption></figure>
+    <figure class="theme"><div class="phone"><img src="img/theme-cattower.jpg" width="640" height="1391" loading="lazy" alt="The Cat Tower look."></div><figcaption>Cat Tower</figcaption></figure>
+    <figure class="theme"><div class="phone"><img src="img/theme-lilypond.jpg" width="640" height="1391" loading="lazy" alt="The Lily Pond look."></div><figcaption>Lily Pond</figcaption></figure>
+    <figure class="theme"><div class="phone"><img src="img/theme-playpen.jpg" width="640" height="1391" loading="lazy" alt="The Playpen look."></div><figcaption>Playpen</figcaption></figure>
+  </div>
+</section>
+
+<!-- PRIVACY PROMISE -->
+<section class="promise" id="privacy">
+  <div class="wrap">
+    <p class="eyebrow">Our promise</p>
+    <h2><span>No account.</span><span>No ads.</span><span>No <s>streaks</s>.</span></h2>
+    <div class="promise-foot">
+      <div><h3>Yours, on your phone</h3><p>Your log lives on your iPhone and Apple Watch, and in your own iCloud if you use it. We never get a copy.</p></div>
+      <div><h3>No tracking</h3><p>No analytics, no advertising, no selling data. Purchases go through Apple.</p></div>
+      <div><h3>No guilt</h3><p>Smacro is a notebook, not a coach. It never nags you about a missed day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="get">
+  <div class="wrap">
+    <div>
+      <h2>Start your <em>first page.</em></h2>
+      <p class="lede">Open Smacro, write what you ate, and tap Log.</p>
+      <div class="hero-actions">
+        <a class="store light" href="https://apps.apple.com/us/app/smacro/id6831761822">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.1.7c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.4-.9-2.4-3.8zM14.1 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <p>A food notebook,<br>not medical advice.</p>
+      </div>
+    </div>
+    <div class="qr"><img src="img/qr.svg" width="37" height="37" loading="lazy" alt="QR code that opens Smacro on the App Store"><p>Point your camera</p></div>
+  </div>
+</section>
 </main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="./"><img src="img/icon.png" alt="" width="40" height="40">Smacro</a>
+      <p>Smacro is a notebook, not medical or nutrition advice. Talk to a doctor or registered dietitian before setting goals or changing how you eat. <a href="terms.html">Read the disclaimer</a>.</p>
+      <p>Questions? Write to <a href="mailto:contactsmacro@gmail.com">contactsmacro@gmail.com</a>.</p>
+      <p><a href="https://platform.fatsecret.com">Powered by fatsecret Platform API</a></p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms and disclaimer</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+    rv.forEach(function (el) { io.observe(el); });
+  } else { rv.forEach(function (el) { el.classList.add('in'); }); }
+
+  // Infinite ticker and look rail: clone the children and let CSS slide them
+  function loop(el, cls) {
+    if (reduce) return;
+    Array.prototype.slice.call(el.children).forEach(function (c) {
+      var k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true');
+      k.querySelectorAll('img').forEach(function (i) { i.alt = ''; i.removeAttribute('loading'); });
+      el.appendChild(k);
+    });
+    if (cls) el.classList.add(cls);
+  }
+  loop(document.getElementById('ticker'));
+  loop(document.getElementById('rail'), 'run');
+
+  // Typing demo
+  var foods = [
+    { t: '2 eggs', n: 'Egg, boiled', s: '2 large · P 13 · C 1 · F 11', c: 155 },
+    { t: 'a banana', n: 'Banana', s: '1 medium', c: 105 },
+    { t: '1 cup oatmeal', n: 'Oatmeal, cooked', s: '1 cup', c: 166 },
+    { t: '1 oz almonds', n: 'Almonds', s: '1 oz', c: 164 }
+  ];
+  var GOAL = 2025, total = 0, i = 0;
+  var $ = function (id) { return document.getElementById(id); };
+  var typeEl = $('dType'), sug = $('dSuggest'), btn = $('dBtn'), rows = $('dRows');
+  var placeholder = '<span class="ph">Write what you ate…</span>';
+  function render() {
+    $('dTotal').textContent = total.toLocaleString('en-US');
+    $('dLeft').textContent = (GOAL - total).toLocaleString('en-US') + ' left';
+    var pct = total / GOAL * 100;
+    $('s1').style.width = pct * .36 + '%'; $('s2').style.width = pct * .4 + '%'; $('s3').style.width = pct * .24 + '%';
+  }
+  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+  async function run() {
+    for (;;) {
+      var f = foods[i % foods.length];
+      if (i % foods.length === 0) { total = 0; rows.innerHTML = ''; render(); }
+      typeEl.textContent = '';
+      for (var k = 1; k <= f.t.length; k++) { typeEl.textContent = f.t.slice(0, k); await wait(85); }
+      await wait(250);
+      $('dName').textContent = f.n; $('dSub').textContent = f.s; $('dCal').textContent = f.c;
+      sug.classList.add('on'); await wait(1300);
+      btn.classList.add('hit'); await wait(180);
+      total += f.c; render();
+      var li = document.createElement('li'), a = document.createElement('span'), b = document.createElement('span');
+      a.textContent = f.n + ' · ' + f.s.split(' · ')[0]; b.textContent = f.c; li.append(a, b);
+      rows.insertBefore(li, rows.firstChild);
+      btn.classList.remove('hit'); sug.classList.remove('on');
+      typeEl.innerHTML = placeholder;
+      await wait(1400); i++;
+    }
+  }
+  if (reduce) {
+    typeEl.textContent = '2 eggs'; sug.classList.add('on'); total = 155; render();
+  } else { run(); }
+})();
+</script>
 </body>
 </html>
