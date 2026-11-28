@@ -3,20 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Smacro: the food notebook that counts your macros</title>
-<meta name="description" content="Just write what you ate. Smacro is a food notebook for iPhone and Apple Watch that adds up your calories, protein, carbs and fat as you write. No account, no ads, no streaks.">
+<title>Smacro: the most satisfying way to log food</title>
+<meta name="description" content="Write what you ate, tap Log, and it lands on the page. Smacro is a food notebook for iPhone and Apple Watch that makes logging feel good, and counts your calories, protein, carbs and fat as you go. No account, no ads, no streaks.">
 <meta name="theme-color" content="#FAF5EC">
 <meta name="apple-itunes-app" content="app-id=6831761822">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Smacro: just write what you ate">
-<meta property="og:description" content="The food notebook that counts your macros as you write. No account. No ads. No streaks.">
+<meta property="og:title" content="Smacro: the most satisfying way to log food">
+<meta property="og:description" content="Write it. Tap Log. It's on the page. The food notebook that makes logging feel good.">
 <meta property="og:url" content="https://ohitsjunho.github.io/smacro-site/">
 <link rel="icon" type="image/png" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="log.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -24,8 +25,8 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./"><img src="img/icon.png" alt="" width="40" height="40">Smacro</a>
-    <a class="link" href="#how">How it works</a>
-    <a class="link" href="#features">Features</a>
+    <a class="link" href="#try">Try it</a>
+    <a class="link" href="#moments">The details</a>
     <a class="link" href="#looks">Looks</a>
     <a class="link" href="#privacy">Privacy</a>
     <a class="cta" href="https://apps.apple.com/us/app/smacro/id6831761822">Get the app</a>
@@ -33,14 +34,13 @@
 </header>
 
 <main>
-<!-- HERO -->
-<section class="hero">
+<!-- HERO: the log card is the product -->
+<section class="lhero" id="try">
   <div class="wrap">
     <div>
       <span class="pill"><i></i>For iPhone and Apple Watch</span>
-      <h1>Just write what you <em>ate.</em></h1>
-      <p class="lede">The food notebook that <b>counts your macros</b> as you write.</p>
-
+      <h1>The most satisfying way to <em>log food.</em></h1>
+      <p class="lede">Write what you ate. Tap Log. <span class="thunk">Thunk.</span> It's on the page, and your macros add up.</p>
       <div class="hero-actions">
         <a class="store" href="https://apps.apple.com/us/app/smacro/id6831761822">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.1.7c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.4-.9-2.4-3.8zM14.1 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
@@ -48,25 +48,31 @@
         </a>
         <p>No account.<br>No ads. No streaks.</p>
       </div>
-
-      <div class="demo" aria-label="Animated demo: typing a food into Smacro and logging it">
-        <div class="demo-top"><span><b id="dTotal">0</b>of 2,025 cal</span><span id="dLeft">2,025 left</span></div>
-        <div class="bar" aria-hidden="true"><i id="s1"></i><i id="s2"></i><i id="s3"></i></div>
-        <div class="typed"><span id="dType"><span class="ph">Write what you ate…</span></span><span class="caret"></span></div>
-        <div class="suggest" id="dSuggest" aria-hidden="true">
-          <div><strong id="dName">Egg, boiled</strong><small id="dSub">2 large · P 13 · C 1 · F 11</small></div>
-          <div class="r"><span id="dCal">155</span><span class="logbtn" id="dBtn">Log</span></div>
-        </div>
-        <ul class="rows" id="dRows"></ul>
-      </div>
     </div>
 
-    <div class="stage">
-      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
-      <span class="chip p">Protein 38 / 140 g</span>
-      <span class="chip c">Carbs 68 / 220 g</span>
-      <span class="chip f">Fat 19 / 65 g</span>
-      <div class="phone"><img src="img/home.jpg" width="640" height="1391" alt="Smacro's page for a Wednesday: 570 of 2,025 calories, protein, carbs and fat bars, and a list of oatmeal, almonds, yogurt, a banana and egg whites."></div>
+    <div class="logcard" id="card" role="group" aria-label="Try logging a food">
+      <div class="lc-head">
+        <span class="lc-day">Today</span>
+        <div class="lc-cal" id="cal"><b id="calN">0</b><span>of 2,025 cal</span></div>
+      </div>
+      <div class="lc-macros">
+        <div class="lc-m p">Protein <em id="mP">0</em> / 140 g<div class="track"><i id="bP"></i></div></div>
+        <div class="lc-m c">Carbs <em id="mC">0</em> / 220 g<div class="track"><i id="bC"></i></div></div>
+        <div class="lc-m f">Fat <em id="mF">0</em> / 65 g<div class="track"><i id="bF"></i></div></div>
+      </div>
+      <form class="lc-line" id="form" autocomplete="off">
+        <input id="line" type="text" placeholder="Write what you ate…" aria-label="What did you eat?" enterkeyhint="done" spellcheck="false">
+      </form>
+      <p class="lc-hint" id="hint">Try it: <button type="button" data-try="2 eggs">2 eggs</button>, <button type="button" data-try="150g chicken">150g chicken</button>, <button type="button" data-try="a banana">a banana</button></p>
+      <div class="lc-sug" id="sug">
+        <div><strong id="sName">Egg, boiled</strong><small id="sSub">2 large</small></div>
+        <div class="r"><span id="sCal">155</span><button type="button" class="logbtn2" id="logBtn">Log</button></div>
+      </div>
+      <ul class="lc-rows" id="rows" aria-live="polite"><li class="lc-empty" id="empty">Your page is empty. Not for long.</li></ul>
+      <div class="lc-foot">
+        <button type="button" class="sound" id="sound" aria-pressed="false">Sound off</button>
+        <button type="button" class="reset" id="reset">New page</button>
+      </div>
     </div>
   </div>
 </section>
@@ -78,83 +84,139 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
+<!-- STATEMENT: one tap -->
+<section class="statement">
   <div class="wrap">
-    <div>
-      <p class="eyebrow rv">How it works</p>
-      <h2 class="rv">It's a notebook. <em>Not a form.</em></h2>
-      <ol class="steps">
-        <li class="rv"><div><h3>Write it.</h3><p>“2 eggs.” “150g chicken breast.” Type it the way you'd say it.</p></div></li>
-        <li class="rv d1"><div><h3>Tap Log.</h3><p>Smacro suggests the right food and portion. One tap puts it on the page.</p></div></li>
-        <li class="rv d2"><div><h3>Watch it add up.</h3><p>Calories, protein, carbs and fat tally against your goal as the day goes.</p></div></li>
-      </ol>
-    </div>
-    <div class="stage rv d1">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="phone"><img src="img/type.jpg" width="640" height="1391" loading="lazy" alt="Typing “2 egg” on Smacro's page, with “Egg, boiled, 2 large, 155 calories” suggested and a Log button."></div>
+    <p class="eyebrow rv">Why it feels so good</p>
+    <h2 class="rv">One line. <em>One tap.</em> Done.</h2>
+    <div class="compare">
+      <div class="us rv">
+        <h3>Logging in Smacro</h3>
+        <ol class="taps"><li>“2 eggs”</li><li>Log</li></ol>
+        <span class="count">1<small>tap</small></span>
+      </div>
+      <div class="them rv d1">
+        <h3>Logging the usual way</h3>
+        <ol class="taps">
+          <li><s>Pick a meal</s></li><li><s>Open search</s></li><li><s>Type</s></li><li><s>Scroll results</s></li>
+          <li><s>Pick a brand</s></li><li><s>Choose a serving</s></li><li><s>Set how many</s></li><li><s>Confirm</s></li><li><s>Go back</s></li>
+        </ol>
+        <span class="count">…<small>you get the idea</small></span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MACROS -->
-<section aria-labelledby="macros-h">
-  <div class="macros-head"><div class="wrap">
-    <p class="eyebrow rv">The numbers</p>
-    <h2 id="macros-h" class="rv">Four numbers. <em>Zero math.</em></h2>
-    <p class="lede rv">Calories and the three macros, kept against your daily goal at the top of the page, all day.</p>
-  </div></div>
-  <div class="macros">
-    <article class="p rv"><div class="g" aria-hidden="true">P</div><div><h3>Protein</h3><p>Build it, keep it, hit it. Counted from every line.</p></div></article>
-    <article class="c rv d1"><div class="g" aria-hidden="true">C</div><div><h3>Carbs</h3><p>The fuel, counted without a second thought.</p></div></article>
-    <article class="f rv d2"><div class="g" aria-hidden="true">F</div><div><h3>Fat</h3><p>All three colors, in one bar, at a glance.</p></div></article>
+<!-- LITTLE MOMENTS -->
+<section class="moments" id="moments">
+  <div class="wrap">
+    <p class="eyebrow rv">Sweat the small stuff</p>
+    <h2 class="rv">Made of little <em>satisfying</em> moments.</h2>
+    <p class="lede rv">You log food every day. So every touch in Smacro answers back.</p>
+
+    <div class="mgrid">
+      <article class="moment m-ruler rv">
+        <div>
+          <span class="n">The amount ruler</span>
+          <h3>Slide it. Feel it click.</h3>
+          <p>Set an amount by sliding a ruler. A click under your finger for every tick, and a firmer one on each numbered mark.</p>
+        </div>
+        <div>
+          <div class="ruler-out">
+            <span class="amt"><span id="rAmt">150</span><small>g chicken breast</small></span>
+            <span class="facts"><b id="rCal">248</b> cal · P <span id="rP">47</span> · F <span id="rF">5</span></span>
+          </div>
+          <div class="ruler" id="ruler" tabindex="0" role="slider" aria-label="Grams of chicken breast" aria-valuemin="1" aria-valuemax="500" aria-valuenow="150">
+            <div class="ruler-strip" id="strip"></div>
+            <div class="ruler-needle"></div>
+          </div>
+          <p class="ruler-hint">Drag it, or use the arrow keys. Turn the sound on up top to hear it.</p>
+        </div>
+      </article>
+
+      <article class="moment m-feel rv d1">
+        <div>
+          <span class="n">The landing</span>
+          <h3>A tap you can feel.</h3>
+          <p>Every line lands on the page with a little tap of haptic feedback. Your phone says “got it” before you look.</p>
+        </div>
+        <button type="button" class="feel-pad" id="feel">Log</button>
+        <p class="feel-count" id="feelCount" aria-live="polite"></p>
+      </article>
+
+      <article class="moment m-scan rv">
+        <div class="scan-art" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <span class="beam"></span><span class="beep">Got it</span>
+        </div>
+        <div>
+          <span class="n">The barcode</span>
+          <h3>Point. Scan. Logged.</h3>
+          <p>Hold your camera to a package and the food is ready to log. No typing, no hunting.</p>
+        </div>
+      </article>
+
+      <article class="moment m-mail rv d1">
+        <div>
+          <span class="n">The reward</span>
+          <h3>Log a banana. Get a letter.</h3>
+          <p>Your pixel pet lives at the bottom of the page and now and then brings you mail: a fun fact about something you logged.</p>
+        </div>
+        <div class="letter">
+          <span class="stamp" aria-hidden="true">♥</span>
+          <small>A letter from your pet</small>
+          <p>“Bananas are berries, botanically. Strawberries are not!”</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- IN THE APP -->
+<section class="see">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rv">In the app</p>
+      <h2 class="rv">It's a notebook. <em>Not a form.</em></h2>
+      <ul>
+        <li class="rv"><b>Write it the way you'd say it.</b> “2 eggs.” “150g chicken breast.”</li>
+        <li class="rv d1"><b>Smacro finds the food and the portion.</b> One tap puts it on the page.</li>
+        <li class="rv d2"><b>Watch the day add up.</b> Calories, protein, carbs and fat, against your goal.</li>
+      </ul>
+    </div>
+    <div class="pair rv d1">
+      <div class="phone"><img src="img/type.jpg" width="640" height="1391" loading="lazy" alt="Typing “2 egg” on Smacro's page, with “Egg, boiled, 2 large, 155 calories” suggested and a Log button."></div>
+      <div class="phone"><img src="img/home.jpg" width="640" height="1391" loading="lazy" alt="Smacro's page for a Wednesday: 570 of 2,025 calories, protein, carbs and fat bars, and a list of oatmeal, almonds, yogurt, a banana and egg whites."></div>
+    </div>
   </div>
 </section>
 
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="wrap">
-    <p class="eyebrow rv">Everything in the notebook</p>
-    <h2 class="rv">Simple on the page. <em>Serious underneath.</em></h2>
-
+    <p class="eyebrow rv">Everything else</p>
+    <h2 class="rv">Satisfying on top. <em>Serious underneath.</em></h2>
     <div class="bento">
-      <article class="card c-scan rv">
-        <div class="barcode-wrap" aria-hidden="true">
-          <div class="barcode"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span class="scanline"></span></div>
-        </div>
-        <h3>Scan a barcode.</h3>
-        <p>Point your camera at the package and the food is on the page. No typing, no hunting.</p>
-      </article>
-
-      <article class="card c-goals rv d1">
+      <article class="card c-goals rv">
         <h3>Goals you can see.</h3>
         <p>Set a daily target, work one out with the calorie calculator, and see how the week went.</p>
         <div class="phone shot"><img src="img/goals.jpg" width="640" height="1391" loading="lazy" alt="Smacro's Analytics screen: a bar chart of daily calories against a 1,740 calorie goal."></div>
       </article>
-
-      <article class="card c-label rv">
+      <article class="card c-label rv d1">
         <div class="label-art" aria-hidden="true"><b>Nutrition Facts</b><div><span>Calories</span><span>190</span></div><div><span>Protein</span><span>12g</span></div><div><span>Total Fat</span><span>7g</span></div></div>
         <span class="tag">Smacro Pro</span>
         <h3>Snap a label.</h3>
         <p>Photograph a Nutrition Facts panel and Smacro copies the numbers for you.</p>
       </article>
-
-      <article class="card c-recipes rv d1">
+      <article class="card c-recipes rv d2">
         <div class="recipe-art" aria-hidden="true">1 pot</div>
         <h3>Save a recipe.</h3>
         <p>Cook once. Log it in one line.</p>
       </article>
-
       <article class="card c-wrist rv">
         <svg class="ring-art" viewBox="0 0 160 160" aria-hidden="true"><circle class="t" cx="80" cy="80" r="70"/><circle class="a" cx="80" cy="80" r="70"/><circle class="t" cx="80" cy="80" r="30"/><circle class="b" cx="80" cy="80" r="30"/></svg>
         <h3>On your wrist and Home Screen.</h3>
-        <p>Log from your Apple Watch, glance at it in a complication, and add Home and Lock Screen widgets with Pro.</p>
-      </article>
-
-      <article class="card c-health rv d1">
-        <div class="heart-art" aria-hidden="true">♥</div>
-        <h3>Plays nicely with Apple.</h3>
-        <p>Optional Apple Health sync, and your log kept safe in your own iCloud.</p>
+        <p>Log from your Apple Watch, glance at a complication, and add Home and Lock Screen widgets with Pro. Optional Apple Health sync, too.</p>
       </article>
     </div>
   </div>
@@ -196,8 +258,8 @@
 <section class="final" id="get">
   <div class="wrap">
     <div>
-      <h2>Start your <em>first page.</em></h2>
-      <p class="lede">Open Smacro, write what you ate, and tap Log.</p>
+      <h2>Log your <em>first line.</em></h2>
+      <p class="lede">You'll want to log the second one too.</p>
       <div class="hero-actions">
         <a class="store light" href="https://apps.apple.com/us/app/smacro/id6831761822">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.1.7c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.4-.9-2.4-3.8zM14.1 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
@@ -228,73 +290,6 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Scroll reveal
-  var rv = document.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
-    rv.forEach(function (el) { io.observe(el); });
-  } else { rv.forEach(function (el) { el.classList.add('in'); }); }
-
-  // Infinite ticker and look rail: clone the children and let CSS slide them
-  function loop(el, cls) {
-    if (reduce) return;
-    Array.prototype.slice.call(el.children).forEach(function (c) {
-      var k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true');
-      k.querySelectorAll('img').forEach(function (i) { i.alt = ''; i.removeAttribute('loading'); });
-      el.appendChild(k);
-    });
-    if (cls) el.classList.add(cls);
-  }
-  loop(document.getElementById('ticker'));
-  loop(document.getElementById('rail'), 'run');
-
-  // Typing demo
-  var foods = [
-    { t: '2 eggs', n: 'Egg, boiled', s: '2 large · P 13 · C 1 · F 11', c: 155 },
-    { t: 'a banana', n: 'Banana', s: '1 medium', c: 105 },
-    { t: '1 cup oatmeal', n: 'Oatmeal, cooked', s: '1 cup', c: 166 },
-    { t: '1 oz almonds', n: 'Almonds', s: '1 oz', c: 164 }
-  ];
-  var GOAL = 2025, total = 0, i = 0;
-  var $ = function (id) { return document.getElementById(id); };
-  var typeEl = $('dType'), sug = $('dSuggest'), btn = $('dBtn'), rows = $('dRows');
-  var placeholder = '<span class="ph">Write what you ate…</span>';
-  function render() {
-    $('dTotal').textContent = total.toLocaleString('en-US');
-    $('dLeft').textContent = (GOAL - total).toLocaleString('en-US') + ' left';
-    var pct = total / GOAL * 100;
-    $('s1').style.width = pct * .36 + '%'; $('s2').style.width = pct * .4 + '%'; $('s3').style.width = pct * .24 + '%';
-  }
-  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
-  async function run() {
-    for (;;) {
-      var f = foods[i % foods.length];
-      if (i % foods.length === 0) { total = 0; rows.innerHTML = ''; render(); }
-      typeEl.textContent = '';
-      for (var k = 1; k <= f.t.length; k++) { typeEl.textContent = f.t.slice(0, k); await wait(85); }
-      await wait(250);
-      $('dName').textContent = f.n; $('dSub').textContent = f.s; $('dCal').textContent = f.c;
-      sug.classList.add('on'); await wait(1300);
-      btn.classList.add('hit'); await wait(180);
-      total += f.c; render();
-      var li = document.createElement('li'), a = document.createElement('span'), b = document.createElement('span');
-      a.textContent = f.n + ' · ' + f.s.split(' · ')[0]; b.textContent = f.c; li.append(a, b);
-      rows.insertBefore(li, rows.firstChild);
-      btn.classList.remove('hit'); sug.classList.remove('on');
-      typeEl.innerHTML = placeholder;
-      await wait(1400); i++;
-    }
-  }
-  if (reduce) {
-    typeEl.textContent = '2 eggs'; sug.classList.add('on'); total = 155; render();
-  } else { run(); }
-})();
-</script>
+<script src="log.js"></script>
 </body>
 </html>
